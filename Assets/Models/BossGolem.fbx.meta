@@ -120,6 +120,7 @@ ModelImporter:
     7400016: Golem_Summon
     7400018: Golem_DieEnd
     9500000: //RootNode
+    11100000: //RootNode
     13700000: GolemArm
     13700002: GolemBody
   externalObjects: {}
@@ -202,7 +203,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

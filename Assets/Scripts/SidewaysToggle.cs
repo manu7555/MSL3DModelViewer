@@ -6,10 +6,11 @@ using UnityEngine.UI;
 public class SidewaysToggle : MonoBehaviour
 {
     private Toggle sideToggle;
-    public GameObject model;
+    private GameObject models;
     // Start is called before the first frame update
     void Start()
     {
+        models = GameObject.Find("Models");
         sideToggle = GetComponent<Toggle>();
         sideToggle.onValueChanged.AddListener(delegate
         {
@@ -25,6 +26,6 @@ public class SidewaysToggle : MonoBehaviour
 
     void ToggleRotateYModel(Toggle change)
     {
-        model.GetComponent<Rotator>().rotateY = change.isOn;   
+        models.GetComponent<Rotator>().rotateY = change.isOn;
     }
 }

@@ -130,6 +130,7 @@ ModelImporter:
     7400016: Sonic_Skill
     7400018: Sonic_Stun
     9500000: //RootNode
+    11100000: //RootNode
     13700000: Sonic 1
   externalObjects: {}
   materials:
@@ -211,7 +212,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

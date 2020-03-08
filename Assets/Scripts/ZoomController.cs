@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ZoomController : MonoBehaviour
 {
 
-    public Slider zoomSlider;
+    private Slider zoomSlider;
     // Start is called before the first frame update
     void Start()
     {

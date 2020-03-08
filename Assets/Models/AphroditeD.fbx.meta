@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d98891c327399834d9bd92ee3fde59f4
+guid: 806b8e8eaa13d8c469d06c63467b798d
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -165,13 +165,9 @@ ModelImporter:
     7400018: Aphrodite_Stun
     7400020: Aphrodite_PhotoPose
     9500000: //RootNode
+    11100000: //RootNode
     13700000: Aphrodite
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: AphroditeD_1
-    second: {fileID: 2100000, guid: d98891c327399834d9bd92ee3fde59f4, type: 3}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -251,7 +247,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

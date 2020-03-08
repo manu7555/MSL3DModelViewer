@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7743859b857121748befeac777d4497e
+guid: 9478ce4f725c6d54d966a1e363db56f5
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -171,6 +171,7 @@ ModelImporter:
     7400018: QueenPersepone_Stun
     7400020: QueenPersepone_PhotoPose
     9500000: //RootNode
+    11100000: //RootNode
     13700000: Persephassa
     13700002: QueenPersepone
   externalObjects: {}
@@ -253,7 +254,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
