@@ -6,21 +6,14 @@ using UnityEditor;
 using System;
 using System.Text.RegularExpressions;
 
-public class AnimationDropdownController : MonoBehaviour
+public class AnimationControllerIGV : MonoBehaviour
 {    
-    private Dropdown dropdown = null;
     private GameObject activeModel = null;
     public bool loopAnim = false;
     // Start is called before the first frame update
     void Start()
     {
-        dropdown = GetComponent<Dropdown>();
-        dropdown.ClearOptions();
-        dropdown.onValueChanged.AddListener(delegate
-        {
-            ChangeAnimation(dropdown.options[dropdown.value].text);
-        });
-        
+
         UpdateAnimationList();
         activeModel.GetComponent<Animation>().wrapMode = WrapMode.Loop;
         
@@ -37,7 +30,7 @@ public class AnimationDropdownController : MonoBehaviour
     public void ChangeAnimation(string animationName)
     {
         //Debug.Log("Animation To Activate: " + animationName);
-        GameObject activeModel = GameObject.Find("Models").GetComponent<Rotator>().GetActiveModel();
+        GameObject activeModel = GameObject.Find("Models").GetComponent<RotatorIGV>().GetActiveModel();
         foreach (AnimationState child in activeModel.GetComponent<Animation>())
         {
             if (child.clip.name.Equals(animationName))
@@ -51,19 +44,16 @@ public class AnimationDropdownController : MonoBehaviour
 
     public void UpdateActiveModel()
     {
-        activeModel = GameObject.Find("Models").GetComponent<Rotator>().GetActiveModel();
+        activeModel = GameObject.Find("Models").GetComponent<RotatorIGV>().GetActiveModel();
     }
 
     public void UpdateAnimationList()
     {
-        UpdateActiveModel();        
-        dropdown.ClearOptions();
-        int count = 0, currVal = 0;
+        UpdateActiveModel();       
         List<string> options = new List<string>();
         //activeModel.GetComponent<Animation>().playAutomatically = false;
         Debug.Log("Active Model: "+activeModel.name);
         activeModel.GetComponent<Animation>().wrapMode = loopAnim ? WrapMode.Loop : WrapMode.Once;
-        //AnimationClip[] animations = AnimationUtility.GetAnimationClips(activeModel);
         Regex idleRegex = new Regex(@"\w+_Idle");
         string idleAnimName = "";
         foreach (AnimationState child in activeModel.GetComponent<Animation>())
@@ -71,15 +61,10 @@ public class AnimationDropdownController : MonoBehaviour
             options.Add(child.name);
             if (idleRegex.IsMatch(child.name))
             {
-                currVal = count;
                 idleAnimName = child.name;
             }
-            count++;
         }
 
-        dropdown.AddOptions(options);
-        //dropdown.value = 0;
-        dropdown.value = currVal;
         Debug.Log("IdleAnimName: " + idleAnimName);
         ChangeAnimation(idleAnimName);
 
@@ -96,8 +81,4 @@ public class AnimationDropdownController : MonoBehaviour
         }
     }
 
-    public Dropdown GetDropdown()
-    {
-        return dropdown;
-    }
 }

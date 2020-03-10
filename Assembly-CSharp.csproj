@@ -63,10 +63,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AnimationControllerIGV.cs" />
     <Compile Include="Assets\Scripts\AnimationDropdownController.cs" />
     <Compile Include="Assets\Scripts\LoopAnimToggle.cs" />
+    <Compile Include="Assets\Scripts\ModelControllerIGV.cs" />
     <Compile Include="Assets\Scripts\ModelDropdownController.cs" />
     <Compile Include="Assets\Scripts\Rotator.cs" />
+    <Compile Include="Assets\Scripts\RotatorIGV.cs" />
     <Compile Include="Assets\Scripts\SidewaysToggle.cs" />
     <Compile Include="Assets\Scripts\ZoomController.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">

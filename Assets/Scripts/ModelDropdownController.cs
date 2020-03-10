@@ -17,7 +17,6 @@ public class ModelDropdownController : MonoBehaviour
         int count = 0;
         dropdown = GetComponent<Dropdown>();
         dropdown.ClearOptions();
-        models = GameObject.Find("Models");
         List<string> options = new List<string>();
         foreach(Transform child in models.transform)
         {
@@ -36,6 +35,7 @@ public class ModelDropdownController : MonoBehaviour
         {
             ChangeModel(dropdown.options[dropdown.value].text);
         });
+                
     }
 
     // Update is called once per frame
@@ -52,6 +52,8 @@ public class ModelDropdownController : MonoBehaviour
             if (model.gameObject.name.Equals(modelName))
             {
                 model.gameObject.SetActive(true);
+
+                animationDropdown.GetComponent<AnimationDropdownController>().ChangeAnimation(model.name + "_Idle");
                 
             } else
             {
