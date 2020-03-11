@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Model Viewer.unity
+    guid: 81b8b68c5dfde204e9893529da9fdfba
+  - enabled: 1
+    path: Assets/Scenes/IGViewer.unity
+    guid: ae87a12ad9c75bf40837a71f24692e10
   m_configObjects: {}

@@ -1,0 +1,13 @@
+{
+"companyName": "DefaultCompany",
+"productName": "MSL 3D Model Viewer",
+"dataUrl": "10-03-20.data.unityweb",
+"wasmCodeUrl": "10-03-20.wasm.code.unityweb",
+"wasmFrameworkUrl": "10-03-20.wasm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Light",
+"backgroundColor": "#404040",
+"cacheControl": {"default": "must-revalidate"}
+}

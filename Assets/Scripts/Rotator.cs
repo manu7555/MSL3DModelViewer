@@ -18,6 +18,9 @@ public class Rotator : MonoBehaviour
     void Start()
     {
         UpdateActiveModel(false);
+#pragma warning disable CS0618 // Type or member is obsolete
+        Application.ExternalEval("OnAppReady()");
+#pragma warning restore CS0618 // Type or member is obsolete
     }
 
     // Update is called once per frame
@@ -25,6 +28,7 @@ public class Rotator : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
         {
+            mDeltaPos = Input.mousePosition - mPrevPos;
                 if (rotateY)
                 {
                     activeModel.transform.Rotate(transform.up, Vector3.Dot(mDeltaPos, Camera.main.transform.right), Space.World);
@@ -63,6 +67,9 @@ public class Rotator : MonoBehaviour
 
     public void changeScene(string newSceneName)
     {
+        /*for(int i = 0; i < SceneManager.sceneCount; i++){
+            SceneManager.GetSceneAt(i).
+        }*/
         SceneManager.LoadScene(newSceneName);
     }
 }

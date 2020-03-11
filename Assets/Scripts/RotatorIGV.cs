@@ -15,13 +15,17 @@ public class RotatorIGV : MonoBehaviour
     public bool rotateY = true;
     private GameObject activeModel;
     private int mouseWasPressed = 0;
-    private int limitFrames = 3;
+    private int limitFrames = 25;
     private Regex idleRegex = new Regex(@"(\w+)_Attack");
     //public bool rotateXZ = false;
 
     void Start()
     {
         UpdateActiveModel(false);
+
+#pragma warning disable CS0618 // Type or member is obsolete
+        Application.ExternalEval("OnAppReady()");
+#pragma warning restore CS0618 // Type or member is obsolete
     }
 
     // Update is called once per frame
@@ -36,6 +40,7 @@ public class RotatorIGV : MonoBehaviour
             } 
             else if (mDeltaPos.Equals(Vector3.zero) && mouseWasPressed == limitFrames && !SceneManager.GetActiveScene().name.Equals("Model Viewer"))
             {
+                mouseWasPressed = 0;
                 foreach (AnimationState child in activeModel.GetComponent<Animation>())
                 {
                     if (idleRegex.IsMatch(child.name))
@@ -44,10 +49,11 @@ public class RotatorIGV : MonoBehaviour
                         
                     }
                 }
+                
             }
             else
             {
-                mouseWasPressed++;
+                mouseWasPressed = limitFrames+1;
                 if (rotateY)
                 {
                     activeModel.transform.Rotate(transform.up, Vector3.Dot(mDeltaPos, Camera.main.transform.right), Space.World);
@@ -62,6 +68,17 @@ public class RotatorIGV : MonoBehaviour
         }
         else
         {
+            if (mouseWasPressed > 0 && mouseWasPressed <= limitFrames)
+            {
+                foreach (AnimationState child in activeModel.GetComponent<Animation>())
+                {
+                    if (idleRegex.IsMatch(child.name))
+                    {
+                        StartCoroutine(PlayAttackAnim(child.clip));
+
+                    }
+                }
+            }
             mouseWasPressed = 0;
         }
 
